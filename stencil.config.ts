@@ -4,6 +4,7 @@ import { sass } from "@stencil/sass";
 import autoprefixer from "autoprefixer";
 import tailwind from "tailwindcss";
 import { generatePreactTypes } from "./support/preact";
+import { docsJsonAsMarkdown } from "./docsJsonAsMarkdown";
 
 export const create: () => Config = () => ({
   buildEs5: "prod",
@@ -82,6 +83,7 @@ export const create: () => Config = () => ({
     { type: "dist" },
     { type: "docs-readme" },
     { type: "docs-json", file: "./dist/extras/docs-json.json" },
+    docsJsonAsMarkdown({ file: "./dist/extras/docs-json.md" }),
     { type: "custom", name: "preact", generator: generatePreactTypes },
     {
       type: "www",
