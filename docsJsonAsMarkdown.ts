@@ -4,15 +4,15 @@ import { promises as fs } from "fs";
 export function docsJsonAsMarkdown(opts = { file: "" }): OutputTargetDocsCustom {
   return {
     type: "docs-custom",
-    generator: (docsData) => {
+    generator: async (docsData) => {
       const content = [];
-      docsData.components.forEach((comp) => normalizeJsonDocsForMarkdown(comp, content));
-
-      const contentStr = content.join("\n");
-      return new Promise((resolve) => {
-        fs.writeFile(opts.file, contentStr);
-        resolve();
-      });
+      try {
+        docsData.components.forEach((comp) => normalizeJsonDocsForMarkdown(comp, content));
+        const contentStr = content.join("\n");
+        await fs.writeFile(opts.file, contentStr);
+      } catch (e) {
+        console.log("error generating docs-json.md: ", e);
+      }
     }
   };
 }

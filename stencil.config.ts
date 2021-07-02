@@ -83,7 +83,7 @@ export const create: () => Config = () => ({
     { type: "dist" },
     { type: "docs-readme" },
     { type: "docs-json", file: "./dist/extras/docs-json.json" },
-    docsJsonAsMarkdown({ file: "./dist/extras/docs-json.md" }),
+    docsJsonAsMarkdown({ file: "./docs-json.md" }),
     { type: "custom", name: "preact", generator: generatePreactTypes },
     {
       type: "www",
