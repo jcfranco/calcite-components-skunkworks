@@ -64,8 +64,10 @@ export class CalciteDatePickerDay {
   /** Date is actively in focus for keyboard navigation */
   @Prop({ reflect: true }) active = false;
 
-  /** CLDR data for current locale */
-  /* @internal */
+  /**
+   * CLDR data for current locale
+   * @internal
+   */
   @Prop() localeData: DateLocaleData;
 
   /** specify the scale of the date picker */
