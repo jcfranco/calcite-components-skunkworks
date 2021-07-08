@@ -1,4 +1,5 @@
 import { ColorValue, RGB } from "./interfaces";
+import { Enumify, enumify } from "../../utils/enumify";
 import Color from "color";
 
 export function rgbToHex(color: RGB): string {
@@ -62,11 +63,6 @@ export function hexToRGB(hex: string): RGB {
 
   return { r, g, b };
 }
-
-// these utils allow users to pass enum values as strings without having to access the enum
-// based on the approach suggested by https://github.com/microsoft/TypeScript/issues/17690#issuecomment-321365759,
-const enumify = <T extends { [index: string]: U }, U extends string>(x: T) => x;
-type Enumify<T> = T[keyof T];
 
 export const CSSColorMode = enumify({
   HEX: "hex",

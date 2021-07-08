@@ -47,8 +47,7 @@ export class CalciteTree {
   @Prop({ mutable: true, reflect: true }) scale: Extract<"s" | "m", Scale> = "m";
 
   /** Customize how tree selection works (single, multi, children, multi-children) */
-  @Prop({ mutable: true, reflect: true }) selectionMode: TreeSelectionMode =
-    TreeSelectionMode.Single;
+  @Prop({ mutable: true, reflect: true }) selectionMode: TreeSelectionMode = "single";
 
   //--------------------------------------------------------------------------
   //
@@ -264,7 +263,7 @@ export class CalciteTree {
 
   /**
    * Emitted when user selects/deselects tree items. An object including an array of selected items will be passed in the event's `detail` property.
-   * @interface [TreeSelectDetail](https://github.com/Esri/calcite-components/blob/master/src/components/calcite-tree/interfaces.ts#L1)
+   * @see [TreeSelectDetail](https://github.com/Esri/calcite-components/blob/master/src/components/calcite-tree/interfaces.ts#L1)
    */
   @Event() calciteTreeSelect: EventEmitter<TreeSelectDetail>;
 

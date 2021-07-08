@@ -12,6 +12,7 @@ import {
 } from "@stencil/core";
 import { CSS, ICONS, SLOTS, TEXT } from "./resources";
 import { ICON_TYPES } from "../calcite-pick-list/resources";
+import { IconOptions } from "../calcite-pick-list/interfaces";
 import { getSlotted } from "../../utils/dom";
 
 /**
@@ -53,7 +54,7 @@ export class CalcitePickListItem {
   /**
    * Determines the icon SVG symbol that will be shown. Options are circle, square, grid or null.
    */
-  @Prop({ reflect: true }) icon?: ICON_TYPES | null = null;
+  @Prop({ reflect: true }) icon?: IconOptions | null = null;
 
   /**
    * The main label for this item. This will appear next to the icon.

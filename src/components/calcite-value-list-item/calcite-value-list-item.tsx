@@ -11,6 +11,7 @@ import {
   VNode
 } from "@stencil/core";
 import { ICON_TYPES } from "../calcite-pick-list/resources";
+import { IconOptions } from "../calcite-pick-list/interfaces";
 import { guid } from "../../utils/guid";
 import { CSS } from "../calcite-pick-list-item/resources";
 import { ICONS, SLOTS } from "./resources";
@@ -54,9 +55,9 @@ export class CalciteValueListItem {
   @Prop({ mutable: true }) handleActivated? = false;
 
   /**
-   * Determines the icon SVG symbol that will be shown. Options are circle, square, grid or null.
+   * Determines the icon SVG symbol that will be shown. Options are circle, square, grip or null.
    */
-  @Prop({ reflect: true }) icon?: ICON_TYPES | null = null;
+  @Prop({ reflect: true }) icon?: IconOptions | null = null;
 
   /**
    * The main label for this item. Appears next to the icon.
