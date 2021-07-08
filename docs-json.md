@@ -29,7 +29,7 @@
 |     |`disabled`|`disabled`|`boolean`|<code>false</code>|||
 |     |`icon`|`icon`|`string`|`--`|||
 |     |`indicator`|`indicator`|`boolean`|<code>false</code>|||
-|     |`intlLoading`|`intl-loading`|`string`|<code>TEXT.loading</code>|||
+|     |`intlLoading`|`intl-loading`|`string`|<code>"Loading"</code>|||
 |     |`label`|`label`|`string`|`--`|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
@@ -112,7 +112,7 @@
 |     |`autoDismissDuration`|`auto-dismiss-duration`|`"fast" \| "medium" \| "slow"`|<code>this.autoDismiss ? "medium" : null</code>|||
 |     |`color`|`color`|`"blue" \| "green" \| "red" \| "yellow"`|<code>"blue"</code>|||
 |     |`icon`|`icon`|`boolean \| string`|`--`|||
-|     |`intlClose`|`intl-close`|`string`|<code>TEXT.intlClose</code>|||
+|     |`intlClose`|`intl-close`|`string`|<code>"close"</code>|||
 |     |`label`|`label`|`string`|`--`|<code>required</code>||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |   |   |   |   |   |   |
@@ -144,8 +144,8 @@
 |     |`headingLevel`|`heading-level`|`1 \| 2 \| 3 \| 4 \| 5 \| 6`|`--`|||
 |     |`intlCollapse`|`intl-collapse`|`string`|`--`|||
 |     |`intlExpand`|`intl-expand`|`string`|`--`|||
-|     |`intlLoading`|`intl-loading`|`string`|<code>TEXT.loading</code>|||
-|     |`intlOptions`|`intl-options`|`string`|<code>TEXT.options</code>|||
+|     |`intlLoading`|`intl-loading`|`string`|<code>"Loading"</code>|||
+|     |`intlOptions`|`intl-options`|`string`|<code>"Options"</code>|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 |     |`open`|`open`|`boolean`|<code>false</code>|||
 |     |`status`|`status`|`"idle" \| "invalid" \| "valid"`|`--`|||
@@ -180,7 +180,7 @@
 |     |`iconEnd`|`icon-end`|`string`|`--`|||
 |     |`iconFlipRtl`|`icon-flip-rtl`|`"both" \| "end" \| "start"`|`--`|||
 |     |`iconStart`|`icon-start`|`string`|`--`|||
-|     |`intlLoading`|`intl-loading`|`string`|<code>TEXT.loading</code>|||
+|     |`intlLoading`|`intl-loading`|`string`|<code>"Loading"</code>|||
 |     |`label`|`label`|`string`|`--`|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 |     |`name`|`name`|`string`|`--`|||
@@ -196,9 +196,9 @@
 |-----|-----|-----|-----|-----|-----|
 |calcite-card|   |   |   |   |   |
 |   | **property** | **attribute** | **type** | **default** |   |
-|     |`intlDeselect`|`intl-deselect`|`string`|<code>TEXT.deselect</code>|||
-|     |`intlLoading`|`intl-loading`|`string`|<code>TEXT.loading</code>|||
-|     |`intlSelect`|`intl-select`|`string`|<code>TEXT.select</code>|||
+|     |`intlDeselect`|`intl-deselect`|`string`|<code>"Deselect"</code>|||
+|     |`intlLoading`|`intl-loading`|`string`|<code>"Loading"</code>|||
+|     |`intlSelect`|`intl-select`|`string`|<code>"Select"</code>|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 |     |`selectable`|`selectable`|`boolean`|<code>false</code>|||
 |     |`selected`|`selected`|`boolean`|<code>false</code>|||
@@ -230,7 +230,7 @@
 |   | **property** | **attribute** | **type** | **default** |   |
 |     |`appearance`|`appearance`|`"clear" \| "solid"`|<code>"solid"</code>|||
 |     |`color`|`color`|`"blue" \| "green" \| "grey" \| "red" \| "yellow"`|<code>"grey"</code>|||
-|     |`dismissLabel`|`dismiss-label`|`string`|<code>TEXT.close</code>|||
+|     |`dismissLabel`|`dismiss-label`|`string`|<code>"close"</code>|||
 |     |`dismissible`|`dismissible`|`boolean`|<code>false</code>|||
 |     |`icon`|`icon`|`string`|`--`|||
 |     |`iconFlipRtl`|`icon-flip-rtl`|`boolean`|`--`|||
@@ -253,25 +253,25 @@
 |     |`hideChannels`|`hide-channels`|`boolean`|<code>false</code>|||
 |     |`hideHex`|`hide-hex`|`boolean`|<code>false</code>|||
 |     |`hideSaved`|`hide-saved`|`boolean`|<code>false</code>|||
-|     |`intlB`|`intl-b`|`string`|<code>TEXT.b</code>|||
-|     |`intlBlue`|`intl-blue`|`string`|<code>TEXT.blue</code>|||
-|     |`intlDeleteColor`|`intl-delete-color`|`string`|<code>TEXT.deleteColor</code>|||
-|     |`intlG`|`intl-g`|`string`|<code>TEXT.g</code>|||
-|     |`intlGreen`|`intl-green`|`string`|<code>TEXT.green</code>|||
-|     |`intlH`|`intl-h`|`string`|<code>TEXT.h</code>|||
-|     |`intlHex`|`intl-hex`|`string`|<code>TEXT.hex</code>|||
-|     |`intlHsv`|`intl-hsv`|`string`|<code>TEXT.hsv</code>|||
-|     |`intlHue`|`intl-hue`|`string`|<code>TEXT.hue</code>|||
-|     |`intlNoColor`|`intl-no-color`|`string`|<code>TEXT.noColor</code>|||
-|     |`intlR`|`intl-r`|`string`|<code>TEXT.r</code>|||
-|     |`intlRed`|`intl-red`|`string`|<code>TEXT.red</code>|||
-|     |`intlRgb`|`intl-rgb`|`string`|<code>TEXT.rgb</code>|||
-|     |`intlS`|`intl-s`|`string`|<code>TEXT.s</code>|||
-|     |`intlSaturation`|`intl-saturation`|`string`|<code>TEXT.saturation</code>|||
-|     |`intlSaveColor`|`intl-save-color`|`string`|<code>TEXT.saveColor</code>|||
-|     |`intlSaved`|`intl-saved`|`string`|<code>TEXT.saved</code>|||
-|     |`intlV`|`intl-v`|`string`|<code>TEXT.v</code>|||
-|     |`intlValue`|`intl-value`|`string`|<code>TEXT.value</code>|||
+|     |`intlB`|`intl-b`|`string`|<code>"B"</code>|||
+|     |`intlBlue`|`intl-blue`|`string`|<code>"Blue"</code>|||
+|     |`intlDeleteColor`|`intl-delete-color`|`string`|<code>"Delete color"</code>|||
+|     |`intlG`|`intl-g`|`string`|<code>"G"</code>|||
+|     |`intlGreen`|`intl-green`|`string`|<code>"Green"</code>|||
+|     |`intlH`|`intl-h`|`string`|<code>"H"</code>|||
+|     |`intlHex`|`intl-hex`|`string`|<code>"Hex"</code>|||
+|     |`intlHsv`|`intl-hsv`|`string`|<code>"HSV"</code>|||
+|     |`intlHue`|`intl-hue`|`string`|<code>"Hue"</code>|||
+|     |`intlNoColor`|`intl-no-color`|`string`|<code>"No color"</code>|||
+|     |`intlR`|`intl-r`|`string`|<code>"R"</code>|||
+|     |`intlRed`|`intl-red`|`string`|<code>"Red"</code>|||
+|     |`intlRgb`|`intl-rgb`|`string`|<code>"RGB"</code>|||
+|     |`intlS`|`intl-s`|`string`|<code>"S"</code>|||
+|     |`intlSaturation`|`intl-saturation`|`string`|<code>"Saturation"</code>|||
+|     |`intlSaveColor`|`intl-save-color`|`string`|<code>"Save color"</code>|||
+|     |`intlSaved`|`intl-saved`|`string`|<code>"Saved"</code>|||
+|     |`intlV`|`intl-v`|`string`|<code>"V"</code>|||
+|     |`intlValue`|`intl-value`|`string`|<code>"Value"</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`storageId`|`storage-id`|`string`|`--`|||
 |     |`value`|`value`|`HSL \| HSL & ObjectWithAlpha \| HSV \| HSV & ObjectWithAlpha \| RGB \| RGB & ObjectWithAlpha \| string`|<code>defaultValue</code>|||
@@ -287,8 +287,8 @@
 |calcite-color-picker-hex-input|   |   |   |   |   |
 |   | **property** | **attribute** | **type** | **default** |   |
 |     |`allowEmpty`|`allow-empty`|`boolean`|<code>false</code>|||
-|     |`intlHex`|`intl-hex`|`string`|<code>TEXT.hex</code>|||
-|     |`intlNoColor`|`intl-no-color`|`string`|<code>TEXT.noColor</code>|||
+|     |`intlHex`|`intl-hex`|`string`|<code>"Hex"</code>|||
+|     |`intlNoColor`|`intl-no-color`|`string`|<code>"No color"</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`value`|`value`|`string`|<code>normalizeHex(DEFAULT_COLOR.hex())</code>|||
 |   |   |   |   |   |   |
@@ -364,8 +364,8 @@
 |     |`end`|`end`|`string`|`--`|||
 |     |`endAsDate`|`--`|`Date`|`--`|||
 |     |`headingLevel`|`heading-level`|`1 \| 2 \| 3 \| 4 \| 5 \| 6`|`--`|||
-|     |`intlNextMonth`|`intl-next-month`|`string`|<code>TEXT.nextMonth</code>|||
-|     |`intlPrevMonth`|`intl-prev-month`|`string`|<code>TEXT.prevMonth</code>|||
+|     |`intlNextMonth`|`intl-next-month`|`string`|<code>"next month"</code>|||
+|     |`intlPrevMonth`|`intl-prev-month`|`string`|<code>"previous month"</code>|||
 |     |`locale`|`locale`|`string`|`document.documentElement.lang \|\| "en"`|||
 |     |`max`|`max`|`string`|`--`|||
 |     |`maxAsDate`|`--`|`Date`|`--`|||
@@ -380,8 +380,8 @@
 |     |`valueAsDate`|`--`|`Date`|`--`|||
 |   |   |   |   |   |   |
 |   | **event** | **detail** |   |   |   |
-|   |`calciteDatePickerChange`|[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)||   |   |
-|   |`calciteDatePickerRangeChange`|[DateRangeChange](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-date-picker/interfaces.ts#L1)||   |   |
+|   |`calciteDatePickerChange`| [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)||   |   |
+|   |`calciteDatePickerRangeChange`| [DateRangeChange](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-date-picker/interfaces.ts#L1)||   |   |
 
 | **component** |   |   |   |   |   |
 |-----|-----|-----|-----|-----|-----|
@@ -447,7 +447,7 @@
 |     |`disabled`|`disabled`|`boolean`|`--`|||
 |     |`maxItems`|`max-items`|`number`|<code>0</code>|||
 |     |`overlayPositioning`|`overlay-positioning`|`"absolute" \| "fixed"`|<code>"absolute"</code>|||
-|     |`placement`|`placement`|`"bottom" \| "bottom-end" \| "bottom-leading" \| "bottom-start" \| "bottom-trailing" \| "top" \| "top-end" \| "top-leading" \| "top-start" \| "top-trailing"`|<code>DefaultDropdownPlacement</code>|||
+|     |`placement`|`placement`|`"bottom" \| "bottom-end" \| "bottom-leading" \| "bottom-start" \| "bottom-trailing" \| "top" \| "top-end" \| "top-leading" \| "top-start" \| "top-trailing"`|<code>"bottom-leading"</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`selectedItems`|`--`|`HTMLCalciteDropdownItemElement[]`|<code>[]</code>|||
 |     |`type`|`type`|`"click" \| "hover"`|<code>"click"</code>|||
@@ -489,7 +489,7 @@
 |     |`appearance`|`appearance`|`"outline" \| "solid"`|<code>"outline"</code>|||
 |     |`color`|`color`|`"blue" \| "inverse" \| "neutral" \| "red"`|<code>"neutral"</code>|||
 |     |`disabled`|`disabled`|`boolean`|<code>false</code>|||
-|     |`icon`|`icon`|`string`|<code>ICONS.plus</code>|||
+|     |`icon`|`icon`|`string`|<code>"plus"</code>|||
 |     |`label`|`label`|`string`|`--`|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
@@ -551,9 +551,9 @@
 |     |`controls`|`controls`|`boolean`|<code>false</code>|||
 |     |`disabled`|`disabled`|`boolean`|<code>false</code>|||
 |     |`editingEnabled`|`editing-enabled`|`boolean`|<code>false</code>|||
-|     |`intlCancelEditing`|`intl-cancel-editing`|`string`|<code>TEXT.intlCancelEditing</code>|||
-|     |`intlConfirmChanges`|`intl-confirm-changes`|`string`|<code>TEXT.intlConfirmChanges</code>|||
-|     |`intlEnableEditing`|`intl-enable-editing`|`string`|<code>TEXT.intlEnablingEditing</code>|||
+|     |`intlCancelEditing`|`intl-cancel-editing`|`string`|<code>"Cancel"</code>|||
+|     |`intlConfirmChanges`|`intl-confirm-changes`|`string`|<code>"Save"</code>|||
+|     |`intlEnableEditing`|`intl-enable-editing`|`string`|<code>"Click to edit"</code>|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|`--`|||
 
@@ -601,8 +601,8 @@
 |     |`end`|`end`|`string`|`--`|||
 |     |`endAsDate`|`--`|`Date`|`--`|||
 |     |`headingLevel`|`heading-level`|`1 \| 2 \| 3 \| 4 \| 5 \| 6`|`--`|||
-|     |`intlNextMonth`|`intl-next-month`|`string`|<code>TEXT.nextMonth</code>|||
-|     |`intlPrevMonth`|`intl-prev-month`|`string`|<code>TEXT.prevMonth</code>|||
+|     |`intlNextMonth`|`intl-next-month`|`string`|<code>"next month"</code>|||
+|     |`intlPrevMonth`|`intl-prev-month`|`string`|<code>"previous month"</code>|||
 |     |`layout`|`layout`|`"horizontal" \| "vertical"`|<code>"horizontal"</code>|||
 |     |`locale`|`locale`|`string`|`document.documentElement.lang \|\| "en"`|||
 |     |`max`|`max`|`string`|`--`|||
@@ -619,8 +619,8 @@
 |     |`valueAsDate`|`--`|`Date`|`--`|||
 |   |   |   |   |   |   |
 |   | **event** | **detail** |   |   |   |
-|   |`calciteDatePickerChange`|[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)||   |   |
-|   |`calciteDatePickerRangeChange`|[DateRangeChange](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-date-picker/interfaces.ts#L1)||   |   |
+|   |`calciteDatePickerChange`| [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)||   |   |
+|   |`calciteDatePickerRangeChange`| [DateRangeChange](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-date-picker/interfaces.ts#L1)||   |   |
 |   |   |   |   |   |   |
 |   | **method** | **signature** | **returns** |   |   |
 |   |`reposition`|`reposition() => Promise<void>`|`Promise<void>`||   |
@@ -745,7 +745,7 @@
 |     |`color`|`color`|`"blue" \| "green" \| "red" \| "yellow"`|<code>"blue"</code>|||
 |     |`dismissible`|`dismissible`|`boolean`|<code>false</code>|||
 |     |`icon`|`icon`|`boolean \| string`|`--`|||
-|     |`intlClose`|`intl-close`|`string`|<code>TEXT.close</code>|||
+|     |`intlClose`|`intl-close`|`string`|<code>"Close"</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`width`|`width`|`"auto" \| "full" \| "half"`|<code>"auto"</code>|||
 |   |   |   |   |   |   |
@@ -779,12 +779,12 @@
 |     |`num`|`num`|`number`|<code>20</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`start`|`start`|`number`|<code>1</code>|||
-|     |`textLabelNext`|`text-label-next`|`string`|<code>TEXT.nextLabel</code>|||
-|     |`textLabelPrevious`|`text-label-previous`|`string`|<code>TEXT.previousLabel</code>|||
+|     |`textLabelNext`|`text-label-next`|`string`|<code>"next"</code>|||
+|     |`textLabelPrevious`|`text-label-previous`|`string`|<code>"previous"</code>|||
 |     |`total`|`total`|`number`|<code>0</code>|||
 |   |   |   |   |   |   |
 |   | **event** | **detail** |   |   |   |
-|   |`calcitePaginationChange`|[CalcitePaginationDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-pagination/calcite-pagination.tsx#L18)||   |   |
+|   |`calcitePaginationChange`| [CalcitePaginationDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-pagination/calcite-pagination.tsx#L18)||   |   |
 |   |`calcitePaginationUpdate`|`CalcitePaginationDetail`|<code>deprecated</code>|   |   |
 |   |   |   |   |   |   |
 |   | **method** | **signature** | **returns** |   |   |
@@ -852,8 +852,8 @@
 |     |`description`|`description`|`string`|`--`|||
 |     |`disableDeselect`|`disable-deselect`|`boolean`|<code>false</code>|||
 |     |`disabled`|`disabled`|`boolean`|<code>false</code>|||
-|     |`icon`|`icon`|`ICON_TYPES.circle \| ICON_TYPES.grip \| ICON_TYPES.square`|<code>null</code>|||
-|     |`intlRemove`|`intl-remove`|`string`|<code>TEXT.remove</code>|||
+|     |`icon`|`icon`|`"circle" \| "grip" \| "square"`|<code>null</code>|||
+|     |`intlRemove`|`intl-remove`|`string`|<code>"remove"</code>|||
 |     |`label`|`label`|`string`|`--`|||
 |     |`metadata`|`--`|`{ [x: string]: unknown; }`|`--`|||
 |     |`removable`|`removable`|`boolean`|<code>false</code>|||
@@ -879,7 +879,7 @@
 |     |`flipPlacements`|`--`|`Placement[]`|`--`|||
 |     |`heading`|`heading`|`string`|`--`|||
 |     |`headingLevel`|`heading-level`|`1 \| 2 \| 3 \| 4 \| 5 \| 6`|`--`|||
-|     |`intlClose`|`intl-close`|`string`|<code>TEXT.close</code>|||
+|     |`intlClose`|`intl-close`|`string`|<code>"Close"</code>|||
 |     |`label`|`label`|`string`|`--`|<code>required</code>||
 |     |`offsetDistance`|`offset-distance`|`number`|<code>defaultOffsetDistance</code>|||
 |     |`offsetSkidding`|`offset-skidding`|`number`|<code>0</code>|||
@@ -990,8 +990,8 @@
 |     |`average`|`average`|`number`|`--`|||
 |     |`count`|`count`|`number`|`--`|||
 |     |`disabled`|`disabled`|`boolean`|<code>false</code>|||
-|     |`intlRating`|`intl-rating`|`string`|<code>TEXT.rating</code>|||
-|     |`intlStars`|`intl-stars`|`string`|<code>TEXT.stars</code>|||
+|     |`intlRating`|`intl-rating`|`string`|<code>"Rating"</code>|||
+|     |`intlStars`|`intl-stars`|`string`|<code>"stars: ${num}"</code>|||
 |     |`readOnly`|`read-only`|`boolean`|<code>false</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`showChip`|`show-chip`|`boolean`|<code>false</code>|||
@@ -1007,7 +1007,7 @@
 |-----|-----|-----|-----|-----|-----|
 |calcite-scrim|   |   |   |   |   |
 |   | **property** | **attribute** | **type** | **default** |   |
-|     |`intlLoading`|`intl-loading`|`string`|<code>TEXT.loading</code>|||
+|     |`intlLoading`|`intl-loading`|`string`|<code>"Loading"</code>|||
 |     |`loading`|`loading`|`boolean`|<code>false</code>|||
 
 | **component** |   |   |   |   |   |
@@ -1168,7 +1168,7 @@
 |     |`syncId`|`sync-id`|`string`|`--`|||
 |   |   |   |   |   |   |
 |   | **event** | **detail** |   |   |   |
-|   |`calciteTabChange`|[TabChangeEventDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-tab/interfaces.ts#L1)||   |   |
+|   |`calciteTabChange`| [TabChangeEventDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-tab/interfaces.ts#L1)||   |   |
 
 | **component** |   |   |   |   |   |
 |-----|-----|-----|-----|-----|-----|
@@ -1182,7 +1182,7 @@
 |     |`tab`|`tab`|`string`|`--`|||
 |   |   |   |   |   |   |
 |   | **event** | **detail** |   |   |   |
-|   |`calciteTabsActivate`|[TabChangeEventDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-tab/interfaces.ts#L1)||   |   |
+|   |`calciteTabsActivate`| [TabChangeEventDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-tab/interfaces.ts#L1)||   |   |
 |   |   |   |   |   |   |
 |   | **method** | **signature** | **returns** |   |   |
 |   |`getTabIndex`|`getTabIndex() => Promise<number>`|`Promise<number>`||   |
@@ -1238,18 +1238,18 @@
 |   | **property** | **attribute** | **type** | **default** |   |
 |     |`hour`|`hour`|`string`|<code>null</code>|||
 |     |`hourDisplayFormat`|`hour-display-format`|`"12" \| "24"`|<code>"12"</code>|||
-|     |`intlHour`|`intl-hour`|`string`|<code>TEXT.hour</code>|||
-|     |`intlHourDown`|`intl-hour-down`|`string`|<code>TEXT.hourDown</code>|||
-|     |`intlHourUp`|`intl-hour-up`|`string`|<code>TEXT.hourUp</code>|||
-|     |`intlMeridiem`|`intl-meridiem`|`string`|<code>TEXT.meridiem</code>|||
-|     |`intlMeridiemDown`|`intl-meridiem-down`|`string`|<code>TEXT.meridiemDown</code>|||
-|     |`intlMeridiemUp`|`intl-meridiem-up`|`string`|<code>TEXT.meridiemUp</code>|||
-|     |`intlMinute`|`intl-minute`|`string`|<code>TEXT.minute</code>|||
-|     |`intlMinuteDown`|`intl-minute-down`|`string`|<code>TEXT.minuteDown</code>|||
-|     |`intlMinuteUp`|`intl-minute-up`|`string`|<code>TEXT.minuteUp</code>|||
-|     |`intlSecond`|`intl-second`|`string`|<code>TEXT.second</code>|||
-|     |`intlSecondDown`|`intl-second-down`|`string`|<code>TEXT.secondDown</code>|||
-|     |`intlSecondUp`|`intl-second-up`|`string`|<code>TEXT.secondUp</code>|||
+|     |`intlHour`|`intl-hour`|`string`|<code>"Hour"</code>|||
+|     |`intlHourDown`|`intl-hour-down`|`string`|<code>"Decrease hour"</code>|||
+|     |`intlHourUp`|`intl-hour-up`|`string`|<code>"Increase hour"</code>|||
+|     |`intlMeridiem`|`intl-meridiem`|`string`|<code>"AM/PM"</code>|||
+|     |`intlMeridiemDown`|`intl-meridiem-down`|`string`|<code>"Decrease AM/PM"</code>|||
+|     |`intlMeridiemUp`|`intl-meridiem-up`|`string`|<code>"Increase AM/PM"</code>|||
+|     |`intlMinute`|`intl-minute`|`string`|<code>"Minute"</code>|||
+|     |`intlMinuteDown`|`intl-minute-down`|`string`|<code>"Decrease minute"</code>|||
+|     |`intlMinuteUp`|`intl-minute-up`|`string`|<code>"Increase minute"</code>|||
+|     |`intlSecond`|`intl-second`|`string`|<code>"Second"</code>|||
+|     |`intlSecondDown`|`intl-second-down`|`string`|<code>"Decrease second"</code>|||
+|     |`intlSecondUp`|`intl-second-up`|`string`|<code>"Increase second"</code>|||
 |     |`minute`|`minute`|`string`|<code>null</code>|||
 |     |`scale`|`scale`|`"l" \| "m" \| "s"`|<code>"m"</code>|||
 |     |`second`|`second`|`string`|<code>null</code>|||
@@ -1319,10 +1319,10 @@
 |     |`inputEnabled`|`input-enabled`|`boolean`|<code>false</code>|||
 |     |`lines`|`lines`|`boolean`|<code>false</code>|||
 |     |`scale`|`scale`|`"m" \| "s"`|<code>"m"</code>|||
-|     |`selectionMode`|`selection-mode`|`TreeSelectionMode.Ancestors \| TreeSelectionMode.Children \| TreeSelectionMode.Multi \| TreeSelectionMode.MultiChildren \| TreeSelectionMode.Single`|<code>TreeSelectionMode.Single</code>|||
+|     |`selectionMode`|`selection-mode`|`"ancestors" \| "children" \| "multi" \| "multi-children" \| "single"`|<code>"single"</code>|||
 |   |   |   |   |   |   |
 |   | **event** | **detail** |   |   |   |
-|   |`calciteTreeSelect`|[TreeSelectDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-tree/interfaces.ts#L1)||   |   |
+|   |`calciteTreeSelect`| [TreeSelectDetail](https://github.com/Esri/calcite-components/blob/v1.0.0-beta.59/src/components/calcite-tree/interfaces.ts#L1)||   |   |
 
 | **component** |   |   |   |   |   |
 |-----|-----|-----|-----|-----|-----|
@@ -1358,7 +1358,7 @@
 |   | **property** | **attribute** | **type** | **default** |   |
 |     |`description`|`description`|`string`|`--`|||
 |     |`disabled`|`disabled`|`boolean`|<code>false</code>|||
-|     |`icon`|`icon`|`ICON_TYPES.circle \| ICON_TYPES.grip \| ICON_TYPES.square`|<code>null</code>|||
+|     |`icon`|`icon`|`"circle" \| "grip" \| "square"`|<code>null</code>|||
 |     |`label`|`label`|`string`|`--`|<code>required</code>||
 |     |`metadata`|`--`|`{ [x: string]: unknown; }`|`--`|||
 |     |`removable`|`removable`|`boolean`|<code>false</code>|||
