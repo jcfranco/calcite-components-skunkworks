@@ -27,7 +27,7 @@ export class CalciteColorPickerSwatch {
   /**
    * The color value.
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+   * @see [<color>](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value)
    */
   @Prop()
   color: string;

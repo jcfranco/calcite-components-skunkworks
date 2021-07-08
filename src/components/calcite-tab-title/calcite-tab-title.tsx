@@ -237,7 +237,7 @@ export class CalciteTabTitle {
 
   /**
    * Fires when a specific tab is activated.
-   * @interface [TabChangeEventDetail](https://github.com/Esri/calcite-components/blob/master/src/components/calcite-tab/interfaces.ts#L1)
+   * @see [TabChangeEventDetail](https://github.com/Esri/calcite-components/blob/master/src/components/calcite-tab/interfaces.ts#L1)
    */
   @Event() calciteTabsActivate: EventEmitter<TabChangeEventDetail>;
 

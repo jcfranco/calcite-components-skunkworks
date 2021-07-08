@@ -151,7 +151,9 @@ export class CalcitePopover {
     this.createPopper();
   }
 
-  /** Text for close button. */
+  /** Text for close button.
+   * @default "Close"
+   */
   @Prop() intlClose = TEXT.close;
 
   // --------------------------------------------------------------------------
