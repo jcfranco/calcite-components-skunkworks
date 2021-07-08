@@ -58,6 +58,8 @@ function normalizeJsonDocsForMarkdown(component: JsonDocsComponent, content: str
           "`|" +
           (sub
             ? '`document.documentElement.lang \\|\\| "en"`'
+            : !sub && prop.default && !!prop.docsTags.find((tag) => tag.name === "default")
+            ? `<code>${prop.docsTags.find((tag) => tag.name === "default").text}</code>`
             : !sub && prop.default
             ? `<code>${prop.default}</code>`
             : "`--`") + // highlight no default value
@@ -77,7 +79,7 @@ function normalizeJsonDocsForMarkdown(component: JsonDocsComponent, content: str
   component.events.forEach((item) => {
     let deprecatedFlag;
     let eventDetailLink;
-    const detailTags = item.docsTags.filter((tag) => tag.name === "interface");
+    const detailTags = item.docsTags.filter((tag) => tag.name === "see");
     if (detailTags.length) {
       detailTags.forEach((tag) => {
         // replace version in markdown interface links
