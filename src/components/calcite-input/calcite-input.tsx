@@ -46,7 +46,9 @@ type NumberNudgeDirection = "up" | "down";
 @Component({
   tag: "calcite-input",
   styleUrl: "calcite-input.scss",
-  scoped: true
+  shadow: {
+    delegatesFocus: true
+  }
 })
 export class CalciteInput {
   //--------------------------------------------------------------------------
@@ -304,7 +306,28 @@ export class CalciteInput {
     if (this.type === "number" && this.childEl) {
       this.childEl.style.cssText = hiddenInputStyle;
     }
+
+    this.form?.addEventListener("formdata", function (e: any) {
+      e.formData.append(this.name, this.value);
+
+      for (var value of e.formData.values()) {
+        console.log(value);
+      }
+
+      debugger;
+    });
+
+    const proxy = document.createElement("input");
+    proxy.slot = "input-proxy";
+    proxy.type = "hidden";
+    proxy.name = this.name;
+    proxy.value = this.value;
+
+    this.proxy = proxy;
+    this.el.append(proxy);
   }
+
+  proxy: HTMLInputElement;
 
   componentShouldUpdate(newValue: any, oldValue: any, property: string): boolean {
     if (this.type === "number" && property === "value" && newValue && !isValidNumber(newValue)) {
@@ -550,8 +573,8 @@ export class CalciteInput {
     const slottedActionEl = this.slottedActionEl as HTMLElement;
 
     this.disabled
-      ? slottedActionEl.setAttribute("disabled", "")
-      : slottedActionEl.removeAttribute("disabled");
+    ? slottedActionEl.setAttribute("disabled", "")
+    : slottedActionEl.removeAttribute("disabled");
   }
 
   private setLocalizedValue = (value: string): void => {
@@ -669,28 +692,28 @@ export class CalciteInput {
     const suffixText = <div class={CSS.suffix}>{this.suffixText}</div>;
 
     const localeNumberInput =
-      this.type === "number" ? (
-        <input
-          aria-label={this.label}
-          autofocus={this.autofocus ? true : null}
-          defaultValue={this.defaultValue}
-          disabled={this.disabled ? true : null}
-          key="localized-input"
-          maxLength={this.maxLength}
-          minLength={this.minLength}
-          name={undefined}
-          onBlur={this.inputBlurHandler}
-          onFocus={this.inputFocusHandler}
-          onInput={this.inputNumberInputHandler}
-          onKeyDown={this.inputNumberKeyDownHandler}
-          placeholder={this.placeholder || ""}
-          readOnly={this.readOnly}
-          ref={this.setChildNumberElRef}
-          tabIndex={this.disabled ? -1 : 0}
-          type="text"
-          value={this.localizedValue}
-        />
-      ) : null;
+            this.type === "number" ? (
+              <input
+                aria-label={this.label}
+                autofocus={this.autofocus ? true : null}
+                defaultValue={this.defaultValue}
+                disabled={this.disabled ? true : null}
+                key="localized-input"
+                maxLength={this.maxLength}
+                minLength={this.minLength}
+                name={undefined}
+                onBlur={this.inputBlurHandler}
+                onFocus={this.inputFocusHandler}
+                onInput={this.inputNumberInputHandler}
+                onKeyDown={this.inputNumberKeyDownHandler}
+                placeholder={this.placeholder || ""}
+                readOnly={this.readOnly}
+                ref={this.setChildNumberElRef}
+                tabIndex={this.disabled ? -1 : 0}
+                type="text"
+                value={this.localizedValue}
+              />
+            ) : null;
 
     const childEl = [
       <this.childElType
@@ -727,8 +750,8 @@ export class CalciteInput {
       <Host onClick={this.inputFocusHandler}>
         <div class={{ [CSS.inputWrapper]: true, [CSS_UTILITY.rtl]: dir === "rtl" }} dir={dir}>
           {this.type === "number" && this.numberButtonType === "horizontal"
-            ? numberButtonsHorizontalDown
-            : null}
+           ? numberButtonsHorizontalDown
+           : null}
           {this.prefixText ? prefixText : null}
           <div class={CSS.wrapper}>
             {localeNumberInput}
@@ -741,13 +764,14 @@ export class CalciteInput {
             <slot name={SLOTS.action} />
           </div>
           {this.type === "number" && this.numberButtonType === "vertical"
-            ? numberButtonsVertical
-            : null}
+           ? numberButtonsVertical
+           : null}
           {this.suffixText ? suffixText : null}
           {this.type === "number" && this.numberButtonType === "horizontal"
-            ? numberButtonsHorizontalUp
-            : null}
+           ? numberButtonsHorizontalUp
+           : null}
         </div>
+        <slot name="input-proxy" />
       </Host>
     );
   }

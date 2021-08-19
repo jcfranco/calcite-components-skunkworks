@@ -1,5 +1,15 @@
-import { Component, Element, Event, Listen, h, Prop, EventEmitter, VNode } from "@stencil/core";
-import { getElementDir, queryElementRoots } from "../../utils/dom";
+import {
+  Component,
+  Element,
+  Event,
+  Listen,
+  h,
+  Prop,
+  EventEmitter,
+  VNode,
+  Host
+} from "@stencil/core";
+import { ensureId, getElementDir, queryElementRoots } from "../../utils/dom";
 import { FocusRequest } from "./interfaces";
 import { Alignment, Scale, Status } from "../interfaces";
 import { CSS_UTILITY } from "../../utils/resources";
@@ -7,7 +17,7 @@ import { CSS_UTILITY } from "../../utils/resources";
 @Component({
   tag: "calcite-label",
   styleUrl: "calcite-label.scss",
-  scoped: true
+  shadow: true
 })
 export class CalciteLabel {
   //--------------------------------------------------------------------------
@@ -73,6 +83,32 @@ export class CalciteLabel {
     this.handleCalciteHtmlForClicks(target);
   }
 
+  componentDidLoad(): void {
+    // TODO: avoid hardcoding
+    let inputForThisLabel: HTMLElement = this.for
+                                         ? queryElementRoots(this.el, `#${this.for}`)
+                                         : this.el.firstElementChild.localName === "calcite-input"
+                                           ? (this.el.firstElementChild as HTMLElement)
+                                           : undefined;
+
+    if (!inputForThisLabel) {
+      return;
+    }
+
+    // TODO: need to check for calcite-only?
+    if (
+      inputForThisLabel.hasAttribute("aria-label") ||
+      inputForThisLabel.hasAttribute("aria-labelledby") /* ||
+      // TODO: describedby can be used with the ones above?
+        inputForThisLabel.hasAttribute("aria-describedby")*/
+    ) {
+      return;
+    }
+
+    ensureId(this.el);
+    inputForThisLabel.setAttribute("aria-labelledby", this.el.id);
+  }
+
   //--------------------------------------------------------------------------
   //
   //  Private Methods
@@ -80,8 +116,29 @@ export class CalciteLabel {
   //--------------------------------------------------------------------------
 
   private handleCalciteHtmlForClicks = (target: HTMLElement) => {
+    const lce = [
+      "calcite-button",
+      "calcite-checkbox",
+      "calcite-date",
+      "calcite-inline-editable",
+      "calcite-input",
+      "calcite-radio",
+      "calcite-radio-button",
+      "calcite-radio-button-group",
+      "calcite-radio-group",
+      "calcite-rating",
+      "calcite-select",
+      "calcite-slider",
+      "calcite-switch"
+    ];
+
+    // TODO: could be extracted to mixin for focusable elements to implement instead of having everything here
     // 1. has htmlFor
     if (!this.for) {
+      if (target.localName === "calcite-label" && lce.includes(target.children[0].localName)) {
+        (target.children[0] as any).click();
+      }
+
       return;
     }
 
@@ -130,7 +187,7 @@ export class CalciteLabel {
       "calcite-switch"
     ];
     if (labelableCalciteElements.includes(target.localName)) {
-      return;
+      // return;
     }
 
     // 5. target is not a child of a labelable calcite form element
@@ -152,9 +209,9 @@ export class CalciteLabel {
   render(): VNode {
     const dir = getElementDir(this.el);
     return (
-      <label class={{ [CSS_UTILITY.rtl]: dir === "rtl" }} htmlFor={this.for}>
+      <Host class={{ [CSS_UTILITY.rtl]: dir === "rtl" }}>
         <slot />
-      </label>
+      </Host>
     );
   }
 }
