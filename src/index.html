@@ -38,37 +38,70 @@
 </head>
 
 <body>
-  <form>
-    <calcite-label>
-      nested
-      <calcite-input name="first" value="primero"></calcite-input>
-    </calcite-label>
+  <h1>&lt;calcite-label&gt;</h1>
 
-    <calcite-label for="input">sibling</calcite-label>
-    <calcite-input id="input" name="second" value="segundo"></calcite-input>
+  <h2>w/o aria-attributes</h2>
 
-    <label>
-      native nested
-      <input name="first" value="primero" aria-label="my label" />
-    </label>
+  <calcite-label>
+    wrapped
+    <calcite-input value="primero"></calcite-input>
+  </calcite-label>
 
-    <label for="nativeInput">native sibling</label>
-    <input id="nativeInput" name="second" value="segundo" />
-  </form>
-  <script>
-    const form = document.querySelector("form");
+  <calcite-label for="input1">for-referenced</calcite-label>
+  <calcite-input id="input1" value="segundo"></calcite-input>
 
-    form.onsubmit = function(e) {
-      console.log('submit', e);
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  <h2>aria-label on input</h2>
 
-    form.addEventListener("formdata", function(e) {
-      console.log('formdata', e);
-      e.preventDefault();
-      e.stopPropagation();
-    });
-  </script>
+  <calcite-label>
+    wrapped
+    <calcite-input value="primero" aria-label="should only read aria-label"></calcite-input>
+  </calcite-label>
+
+  <calcite-label for="input2">for-referenced</calcite-label>
+  <calcite-input id="input2" value="segundo" aria-label="should only read aria-label"></calcite-input>
+
+  <h2>aria-labelledby on input</h2>
+
+  <div id="other">should only read aria-labelledby</div>
+
+  <calcite-label>
+    wrapped
+    <calcite-input value="primero" aria-labelledby="other"></calcite-input>
+  </calcite-label>
+
+  <calcite-label for="input3">for-referenced</calcite-label>
+  <calcite-input id="input3" value="segundo" aria-labelledby="other"></calcite-input>
+
+  <h1>&lt;label&gt;</h1>
+
+  <h2>w/o aria-attributes</h2>
+  <label>
+    wrapped
+    <input value="primero" aria-label="my label" />
+  </label>
+
+  <label for="nativeInput1">for-referenced</label>
+  <input id="nativeInput1" value="segundo" />
+
+  <h2>aria-label on input</h2>
+
+  <label>
+    wrapped
+    <input value="primero" aria-label="should only read aria-label" />
+  </label>
+
+  <label for="nativeInput2">for-referenced</label>
+  <input id="nativeInput2" value="segundo" aria-label="should only read aria-label"></input>
+
+  <h2>aria-labelledby on input</h2>
+
+  <label>
+    wrapped
+    <input value="primero" aria-labelledby="other"></input>
+  </label>
+
+  <label for="nativeInput3">for-referenced</label>
+  <input id="nativeInput3" value="segundo" aria-labelledby="other"></input>
+
 </body>
 </html>

@@ -94,19 +94,6 @@ export class CalciteLabel {
     if (!inputForThisLabel) {
       return;
     }
-
-    // TODO: need to check for calcite-only?
-    if (
-      inputForThisLabel.hasAttribute("aria-label") ||
-      inputForThisLabel.hasAttribute("aria-labelledby") /* ||
-      // TODO: describedby can be used with the ones above?
-        inputForThisLabel.hasAttribute("aria-describedby")*/
-    ) {
-      return;
-    }
-
-    ensureId(this.el);
-    inputForThisLabel.setAttribute("aria-labelledby", this.el.id);
   }
 
   //--------------------------------------------------------------------------

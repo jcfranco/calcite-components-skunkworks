@@ -17,7 +17,7 @@ import {
   getElementDir,
   getElementProp,
   setRequestedIcon,
-  closestElementCrossShadowBoundary
+  closestElementCrossShadowBoundary, ensureId
 } from "../../utils/dom";
 import { getKey } from "../../utils/key";
 import { CSS, INPUT_TYPE_ICONS, SLOTS } from "./calcite-input.resources";
@@ -37,6 +37,7 @@ import {
   sanitizeNumberString
 } from "../../utils/number";
 import { CSS_UTILITY, TEXT } from "../../utils/resources";
+import { getAriaLabel } from "../../utils/a11y";
 
 type NumberNudgeDirection = "up" | "down";
 
@@ -286,6 +287,8 @@ export class CalciteInput {
         this.value = undefined;
       }
     }
+
+    ensureId(this.el);
   }
 
   disconnectedCallback(): void {
@@ -691,6 +694,9 @@ export class CalciteInput {
 
     const suffixText = <div class={CSS.suffix}>{this.suffixText}</div>;
 
+    const labelInfo = getAriaLabel(this.el, this.el.id);
+    console.log(labelInfo);
+
     const localeNumberInput =
             this.type === "number" ? (
               <input
@@ -717,7 +723,7 @@ export class CalciteInput {
 
     const childEl = [
       <this.childElType
-        aria-label={this.label}
+        aria-label={this.label || labelInfo.labelText}
         autofocus={this.autofocus ? true : null}
         defaultValue={this.defaultValue}
         disabled={this.disabled ? true : null}
