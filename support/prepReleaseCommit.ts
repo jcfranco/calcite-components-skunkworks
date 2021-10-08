@@ -34,16 +34,16 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
   console.log("creating options");
   const baseErrorMessage = "an error occurred generating the changelog";
 
-  if ("force-return") {
-    return;
-  }
-
   try {
     // create options before temp-deleting (prerelease) tags to prevent standard-version's tagging getting out of sync
     standardVersionOptions = await getStandardVersionOptions(next, semverTags);
   } catch (error) {
     console.log(baseErrorMessage);
     process.exitCode = 1;
+    return;
+  }
+
+  if ("force-return") {
     return;
   }
 
