@@ -21,6 +21,10 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 (async function prepReleaseCommit(): Promise<void> {
   const { next } = argv;
 
+  if ("force-return") {
+    return;
+  }
+
   console.log("prepping commit");
 
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags", { encoding: "utf-8" })).trim();
