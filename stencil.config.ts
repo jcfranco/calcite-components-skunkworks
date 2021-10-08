@@ -4,10 +4,8 @@ import { sass } from "@stencil/sass";
 import babel from "@rollup/plugin-babel";
 import autoprefixer from "autoprefixer";
 import tailwind from "tailwindcss";
-import { generatePreactTypes } from "./support/preact";
 
 export const create: () => Config = () => ({
-  buildEs5: "prod",
   namespace: "calcite",
   bundles: [
     { components: ["calcite-accordion", "calcite-accordion-item"] },
@@ -78,11 +76,9 @@ export const create: () => Config = () => ({
     { type: "dist" },
     { type: "docs-readme" },
     { type: "docs-json", file: "./dist/extras/docs-json.json" },
-    { type: "custom", name: "preact", generator: generatePreactTypes },
     {
       type: "www",
       baseUrl: "https://stenciljs.com/",
-      prerenderConfig: "./prerender.config.ts",
       copy: [
         { src: "demos", dest: "demos" },
         { src: "robots.txt", dest: "robots.txt" }

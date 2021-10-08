@@ -44,7 +44,7 @@
     "test:watch": "npm run util:run-tests -- --watchAll",
     "util:add-custom-elements-extras": "npm run util:add-custom-elements-extras:index-mjs && npm run util:add-custom-elements-extras:build-utils",
     "util:add-custom-elements-extras:index-mjs": "cpy dist/custom-elements/index.js dist/custom-elements/ --rename index.mjs",
-    "util:add-custom-elements-extras:build-utils": "ts-node --project ./tsconfig-node-scripts.json ./support/output-targets/custom-elements/createBundles.ts  && tsc --project ./support/output-targets/custom-elements/tsconfig-dist-utils.json && rimraf ./support/output-targets/custom-elements/bundles",
+    "util:add-custom-elements-extras:build-utils": "",
     "util:build-docs": "npm run util:copy-icons && stencil build --config stencil.storybook.config.ts",
     "util:clean-tested-build": "npm ci && npm test && npm run build",
     "util:copy-icons": "cpy ./node_modules/@esri/calcite-ui-icons/js/*.json ./src/components/calcite-icon/assets/calcite-icon/",
