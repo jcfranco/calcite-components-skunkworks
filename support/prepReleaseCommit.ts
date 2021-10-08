@@ -38,7 +38,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     // create options before temp-deleting (prerelease) tags to prevent standard-version's tagging getting out of sync
     standardVersionOptions = await getStandardVersionOptions(next, semverTags);
   } catch (error) {
-    console.log("failing this one");
+    console.log("failing on options", baseErrorMessage);
     throw new Error(baseErrorMessage);
   }
 
@@ -49,6 +49,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     try {
       await runStandardVersion(next, standardVersionOptions);
     } catch (error) {
+      console.log("failing on release", changelogGenerationErrorMessage);
       throw new Error(changelogGenerationErrorMessage);
     }
     return;
@@ -65,6 +66,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
     await runStandardVersion(next, standardVersionOptions);
   } catch (error) {
+    console.log("failing on prerelease", changelogGenerationErrorMessage);
     throw new Error(changelogGenerationErrorMessage);
   } finally {
     console.log("restoring tags");
