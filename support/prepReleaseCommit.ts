@@ -38,8 +38,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     // create options before temp-deleting (prerelease) tags to prevent standard-version's tagging getting out of sync
     standardVersionOptions = await getStandardVersionOptions(next, semverTags);
   } catch (error) {
-    console.log(baseErrorMessage);
-    process.exitCode = 1;
+    throw new Error(baseErrorMessage);
     return;
   }
 
@@ -54,8 +53,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     try {
       await runStandardVersion(next, standardVersionOptions);
     } catch (error) {
-      console.log(changelogGenerationErrorMessage);
-      process.exitCode = 1;
+      throw new Error(changelogGenerationErrorMessage);
     }
     return;
   }
@@ -71,8 +69,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
     await runStandardVersion(next, standardVersionOptions);
   } catch (error) {
-    console.log(changelogGenerationErrorMessage);
-    process.exitCode = 1;
+    throw new Error(changelogGenerationErrorMessage);
   } finally {
     console.log("restoring tags");
     // restore deleted prerelease tags
@@ -88,16 +85,6 @@ async function getStandardVersionOptions(next: boolean, semverTags: string[]): P
   // this should not be needed after v1.0.0 since there would no longer be a beta version to keep track of
   const targetDescendingOrderTags = semverTags.filter((tag) => targetVersionPattern.test(tag)).sort(semver.rcompare);
   const targetReleaseVersion = semver.inc(targetDescendingOrderTags[0], "prerelease", target);
-
-  if ("force-return") {
-    return {
-      commitAll: true,
-      header,
-      releaseAs: targetReleaseVersion,
-      releaseCommitMessageFormat: "{{currentTag}} [skip ci]",
-      silent: true
-    };
-  }
 
   if (!targetVersionPattern.test(targetReleaseVersion)) {
     throw new Error(`target release version does not have prerelease identifier (${target})`);
