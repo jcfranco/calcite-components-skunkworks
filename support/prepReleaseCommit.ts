@@ -39,7 +39,6 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     standardVersionOptions = await getStandardVersionOptions(next, semverTags);
   } catch (error) {
     throw new Error(baseErrorMessage);
-    return;
   }
 
   if ("force-return") {
