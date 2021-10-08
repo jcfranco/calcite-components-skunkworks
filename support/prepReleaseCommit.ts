@@ -41,10 +41,6 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     throw new Error(baseErrorMessage);
   }
 
-  if ("force-return") {
-    return;
-  }
-
   console.log("checking for release");
   const changelogGenerationErrorMessage = `${baseErrorMessage} (releasing as: ${standardVersionOptions.releaseAs})`;
 
