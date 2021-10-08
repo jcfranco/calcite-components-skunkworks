@@ -23,7 +23,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
   console.log("prepping commit");
 
-  const previousReleasedTag = (await exec("git describe --abbrev=0 --tags", { encoding: "utf-8" })).trim();
+  const previousReleasedTag = (await exec("git describe --abbrev=0 --tags")).trim();
   console.log("prev tag acquired");
   const prereleaseVersionPattern = /-next\.\d+$/;
   const previousReleaseIsPrerelease = prereleaseVersionPattern.test(previousReleasedTag);
@@ -150,8 +150,7 @@ async function getUnreleasedChangelogContents(): Promise<string> {
   // invoking this way since we want the CLI module behavior, which doesn't provide a way to programmatically use it
   return (
     await exec(
-      "npx conventional-changelog --release-count 1 --output-unreleased --preset conventionalcommits --context support/.unreleased-changelog-context.json",
-      { encoding: "utf-8" }
+      "npx conventional-changelog --release-count 1 --output-unreleased --preset conventionalcommits --context support/.unreleased-changelog-context.json"
     )
   ).trim();
 }

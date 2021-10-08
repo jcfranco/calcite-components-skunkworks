@@ -39,7 +39,7 @@ const exec = pify(childProcess.exec);
       await fs.writeFile(".npmrc", "//registry.npmjs.org/:_authToken=${NPM_TOKEN}", { flag: "a" });
 
       console.log(" - prepping package...");
-      await exec(`npm run util:prep-next-from-existing-build`);
+      console.log((await exec(`npm run util:prep-next-from-existing-build`)).trim());
 
       console.log(" - pushing tags...");
       // await exec(`npm run util:push-tags -- --quiet https://$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG master`);
@@ -86,7 +86,7 @@ const exec = pify(childProcess.exec);
   }
 
   async function runGit(command: string, ...args: string[]): Promise<string> {
-    return (await exec(`git ${command} ${args.join(" ")}`, { encoding: "utf-8" })).trim();
+    return (await exec(`git ${command} ${args.join(" ")}`)).trim();
   }
 
   try {
