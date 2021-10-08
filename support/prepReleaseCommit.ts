@@ -21,12 +21,17 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 (async function prepReleaseCommit(): Promise<void> {
   const { next } = argv;
 
+  console.log("prepping commit");
+
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags", { encoding: "utf-8" })).trim();
+  console.log("prev tag acquired");
   const prereleaseVersionPattern = /-next\.\d+$/;
   const previousReleaseIsPrerelease = prereleaseVersionPattern.test(previousReleasedTag);
+  console.log("getting tags");
   const semverTags = await pify(gitSemverTags)();
   let standardVersionOptions: Options;
 
+  console.log("creating options");
   const baseErrorMessage = "an error occurred generating the changelog";
 
   try {
@@ -38,6 +43,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     return;
   }
 
+  console.log("checking for release");
   const changelogGenerationErrorMessage = `${baseErrorMessage} (releasing as: ${standardVersionOptions.releaseAs})`;
 
   if (!previousReleaseIsPrerelease) {
@@ -49,6 +55,8 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     }
     return;
   }
+
+  console.log("stepping into prerelease workflow");
 
   const indexOfNonNextTag = semverTags.findIndex((tag) => !prereleaseVersionPattern.test(tag));
   const nextTagsSinceLastRelease = semverTags.slice(0, indexOfNonNextTag);
@@ -62,6 +70,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
     console.log(changelogGenerationErrorMessage);
     process.exitCode = 1;
   } finally {
+    console.log("restoring tags");
     // restore deleted prerelease tags
     await exec(`git fetch --tags`);
   }
