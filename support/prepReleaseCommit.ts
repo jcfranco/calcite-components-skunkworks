@@ -21,10 +21,6 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 (async function prepReleaseCommit(): Promise<void> {
   const { next } = argv;
 
-  if ("force-return") {
-    return;
-  }
-
   console.log("prepping commit");
 
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags", { encoding: "utf-8" })).trim();
@@ -37,6 +33,10 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
   console.log("creating options");
   const baseErrorMessage = "an error occurred generating the changelog";
+
+  if ("force-return") {
+    return;
+  }
 
   try {
     // create options before temp-deleting (prerelease) tags to prevent standard-version's tagging getting out of sync
