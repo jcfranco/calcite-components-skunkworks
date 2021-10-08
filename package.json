@@ -38,7 +38,7 @@
     "release:prepare": "npm run util:clean-tested-build && ts-node --project ./tsconfig-node-scripts.json support/prepReleaseCommit.ts && git add .",
     "release:publish": "npm run util:push-tags && npm publish && ts-node ./support/releaseToGitHub.ts",
     "start": "concurrently --kill-others --raw \"tsc --project ./tsconfig-demos.json --watch\" \"npm:build --dev --watch --serve\" \"ts-node ./support/cleanOnProcessExit.ts --path ./src/demos/**/*.js \"",
-    "test": "npm run util:run-tests",
+    "test": "",
     "test:prerender": "stencil build --no-docs --prerender",
     "test:storybook": "concurrently --raw \"npm:util:build-docs && screener-storybook --conf screener.config.js\"",
     "test:watch": "npm run util:run-tests -- --watchAll",
