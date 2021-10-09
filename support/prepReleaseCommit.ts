@@ -30,6 +30,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
   console.log("getting tags");
   const semverTags = await pify(gitSemverTags)();
   let standardVersionOptions: Options;
+  console.log("git-semver-tags:", semverTags);
 
   console.log("creating options");
   const baseErrorMessage = "an error occurred generating the changelog";
