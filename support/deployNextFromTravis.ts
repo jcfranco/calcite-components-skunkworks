@@ -29,7 +29,7 @@ const exec = pify(childProcess.exec);
     }
 
     console.log("Building deployable candidate ⚙️");
-    await exec("npm run build");
+    // await exec("npm run build");
 
     await runGit("checkout", "master", "--quiet");
     await runGit("fetch", "--all", "--tags", "--quiet");
