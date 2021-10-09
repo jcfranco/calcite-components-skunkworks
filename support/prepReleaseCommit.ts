@@ -23,9 +23,10 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
   console.log("prepping commit");
 
-  console.log(await exec(`git log --decorate --no-color`), "log dec");
+  // console.log(await exec(`git log --decorate --no-color`), "log dec");
 
-  await exec(`git fetch --unshallow --quiet`);
+  // travis works with shallow clones
+  await exec(`git fetch --deepen=250 --tags --quiet`);
   console.log(await exec(`git tag`));
 
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags")).trim();
