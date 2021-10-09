@@ -15,7 +15,13 @@ const exec = pify(childProcess.exec);
   async function deployNextFromTravis(): Promise<void> {
     console.log("Determining @next deployability 🔍");
 
+    console.log("local tags", await runGit("tag"));
+
     await runGit("fetch", "--tags", "--quiet");
+    console.log("local tags (after fetching)", await runGit("tag"));
+
+    await runGit("fetch", "--all", "--tags", "--quiet");
+    console.log("local tags (after fetching --all)", await runGit("tag"));
 
     if (!(await deployable(await mostRecentTag("HEAD")))) {
       console.log("No changes since the previous release, skipping ⛔");
@@ -26,7 +32,7 @@ const exec = pify(childProcess.exec);
     await exec("npm run build");
 
     await runGit("checkout", "master", "--quiet");
-    await runGit("fetch", "--tags", "--quiet");
+    await runGit("fetch", "--all", "--tags", "--quiet");
 
     if (
       (await latestCommit("master")) != (await latestCommit("origin/master")) &&
