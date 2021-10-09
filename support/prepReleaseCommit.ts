@@ -23,7 +23,9 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
   console.log("prepping commit");
 
-  await exec(`git fetch --all --tags --quiet`);
+  console.log(await exec(`git log --decorate --no-color`), "log dec");
+
+  await exec(`git fetch --unshallow --quiet`);
   console.log(await exec(`git tag`));
 
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags")).trim();
