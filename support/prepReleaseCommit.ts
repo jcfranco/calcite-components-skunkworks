@@ -24,6 +24,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
   console.log("prepping commit");
 
   await exec(`git fetch --all --tags --quiet`);
+  console.log(await exec(`git tag`));
 
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags")).trim();
   console.log("prev tag acquired");
@@ -32,6 +33,7 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
   console.log("getting tags");
   const semverTags = await pify(gitSemverTags)();
   let standardVersionOptions: Options;
+  console.log(previousReleasedTag, previousReleaseIsPrerelease);
   console.log("git-semver-tags:", semverTags);
 
   console.log("creating options");
