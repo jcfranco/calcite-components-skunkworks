@@ -23,6 +23,8 @@ const readmePath = quote([normalize(`${__dirname}/../readme.md`)]);
 
   console.log("prepping commit");
 
+  await exec(`git fetch --tags --quiet`);
+
   const previousReleasedTag = (await exec("git describe --abbrev=0 --tags")).trim();
   console.log("prev tag acquired");
   const prereleaseVersionPattern = /-next\.\d+$/;
