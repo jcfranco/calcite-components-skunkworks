@@ -84,7 +84,10 @@ async function getStandardVersionOptions(next: boolean, semverTags: string[]): P
   const targetDescendingOrderTags = semverTags.filter((tag) => targetVersionPattern.test(tag)).sort(semver.rcompare);
   const targetReleaseVersion = semver.inc(targetDescendingOrderTags[0], "prerelease", target);
 
+  console.log(targetDescendingOrderTags, "all tags");
+
   if (!targetVersionPattern.test(targetReleaseVersion)) {
+    console.log(`target release version does not have prerelease identifier (${target})`, targetReleaseVersion);
     throw new Error(`target release version does not have prerelease identifier (${target})`);
   }
 
